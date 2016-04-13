@@ -1,5 +1,5 @@
 stage 'Compile'
-node('linux1') {
+node('ssh1') {
     checkout scm
     // use for non multibranch: git 'https://github.com/amuniz/maven-helloworld.git'
     def mvnHome = tool 'maven-3'
@@ -15,7 +15,7 @@ parallel one: {
         sh "${mvnHome}/bin/mvn test -Diterations=10"
     }
 }, two: {
-    node('linux2') {
+    node('ssh2') {
         unstash 'working-copy'
         def mvnHome = tool 'maven-3'
         sh "${mvnHome}/bin/mvn test -Diterations=5"
