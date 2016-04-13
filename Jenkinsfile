@@ -9,10 +9,10 @@ node('linux1') {
 
 stage 'Test'
 parallel one: {
-    node('linux1') {
+    node('ssh1') {
         unstash 'working-copy'
         def mvnHome = tool 'maven-3'
-        sh "${mvnHome}/bin/mvn test -Diterations=10"    
+        sh "${mvnHome}/bin/mvn test -Diterations=10"
     }
 }, two: {
     node('linux2') {
@@ -23,7 +23,7 @@ parallel one: {
 }, failFast: true
 
 stage 'Code Quality'
-node('linux1') {
+node('ssh1') {
     unstash 'working-copy'
     step([$class: 'CheckStylePublisher'])
     step([$class: 'FindBugsPublisher'])
@@ -32,7 +32,7 @@ node('linux1') {
 
 stage name: 'Deploy', concurrency: 1
 def path = input message: 'Where should I deploy this build?', parameters: [[$class: 'StringParameterDefinition', name: 'FILE_PATH']]
-node('linux1') {
+node('ssh1') {
     unstash 'working-copy'
     sh "cp target/example-1.0-SNAPSHOT.jar ${path}"
 }
