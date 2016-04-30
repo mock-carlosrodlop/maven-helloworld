@@ -25,9 +25,10 @@ parallel one: {
 stage 'Code Quality'
 node('ssh1') {
     unstash 'working-copy'
+    // These steps are not working in multibranch
     // step([$class: 'CheckStylePublisher'])
-    step([$class: 'FindBugsPublisher'])
-    step([$class: 'PmdPublisher'])
+    // step([$class: 'FindBugsPublisher'])
+    // step([$class: 'PmdPublisher'])
 }
 
 stage name: 'Deploy', concurrency: 1
