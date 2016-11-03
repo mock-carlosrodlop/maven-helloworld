@@ -25,7 +25,8 @@ parallel one: {
 stage 'Code Quality'
 node('ssh1') {
     unstash 'working-copy'
-    step([$class: 'CheckStylePublisher'])
+    //JENKINS-32474
+    step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: '**/checkstyle-result.xml'])
     step([$class: 'FindBugsPublisher'])
     step([$class: 'PmdPublisher'])
 }
