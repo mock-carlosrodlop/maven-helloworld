@@ -27,7 +27,7 @@ node('ssh1') {
     unstash 'working-copy'
     step([$class: 'CheckStylePublisher'])
     //step([$class: 'FindBugsPublisher'])
-    step([$class: 'PmdPublisher'])
+    //step([$class: 'PmdPublisher'])
 }
 
 stage name: 'Deploy', concurrency: 1
