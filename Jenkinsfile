@@ -1,5 +1,5 @@
 stage 'Compile'
-node('ssh1') {
+node('shared') {
     checkout scm
     // use for non multibranch: git 'https://github.com/amuniz/maven-helloworld.git'
     def mvnHome = tool 'M3'
@@ -9,13 +9,13 @@ node('ssh1') {
 
 stage 'Test'
 parallel one: {
-    node('ssh1') {
+    node('ssh-agent') {
         unstash 'working-copy'
         def mvnHome = tool 'M3'
         sh "${mvnHome}/bin/mvn test -Diterations=10"
     }
 }, two: {
-    node('ssh2') {
+    node('shared-jnlp-agent') {
         unstash 'working-copy'
         def mvnHome = tool 'M3'
         sh "${mvnHome}/bin/mvn test -Diterations=5"
@@ -23,7 +23,7 @@ parallel one: {
 }, failFast: true
 
 stage 'Code Quality'
-node('ssh1') {
+node('shared') {
     unstash 'working-copy'
     // These steps are not working in multibranch
     // step([$class: 'CheckStylePublisher'])
@@ -33,7 +33,7 @@ node('ssh1') {
 
 stage name: 'Deploy', concurrency: 1
 def path = input message: 'Where should I deploy this build?', parameters: [[$class: 'StringParameterDefinition', name: 'FILE_PATH']]
-node('ssh1') {
+node('shared') {
     unstash 'working-copy'
     sh "cp target/example-1.0-SNAPSHOT.jar ${path}"
 }
