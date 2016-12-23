@@ -32,3 +32,4 @@ Checkstyle, Findbugs, PMD
 1. Wait human interaction before deploy.
 1. Ask where to deploy.
 1. Simulated by copying the JAR to localhost by scp.
+1. (Mock line)
