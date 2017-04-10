@@ -10,6 +10,12 @@ $id$
     <version>1.0-SNAPSHOT</version>
     <name>example</name>
     <url>http://maven.apache.org</url>
+    <scm>
+         <connection>scm:git:http://github.com/mock-carlosrodlop-org/maven-helloworld</connection>
+         <developerConnection>scm:git:https://github.com/mock-carlosrodlop-org/maven-helloworld</developerConnection>
+         <tag>HEAD</tag>
+         <url>http://github.com/mock-carlosrodlop-org/maven-helloworld</url>
+    </scm>     
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
