@@ -13,8 +13,6 @@ $id$
     <scm>
          <connection>scm:git:http://github.com/mock-carlosrodlop-org/maven-helloworld</connection>
          <developerConnection>scm:git:https://github.com/mock-carlosrodlop-org/maven-helloworld</developerConnection>
-         <tag>HEAD</tag>
-         <url>http://github.com/mock-carlosrodlop-org/maven-helloworld</url>
     </scm>     
     <dependencies>
         <dependency>
