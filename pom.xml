@@ -10,16 +10,8 @@ $id$
     <name>example</name>
     <url>http://maven.apache.org</url>
     <scm>
-        <developerConnection>scm:git:https://github.com/mock-carlosrodlop-org/maven-helloworld</developerConnection>
-        <tag>HEAD</tag>
+        <developerConnection>scm:git:https://github.com/mock-carlosrodlop-org/maven-helloworld/tree/master</developerConnection>
     </scm>
-    <distributionManagement>
-        <repository>
-            <id>internal.repo</id>
-            <name>MyCo Internal Repository</name>
-            <url>http://localhost:8081/artifactory</url>
-        </repository>
-    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -102,6 +94,9 @@ $id$
                  <groupId>org.apache.maven.plugins</groupId>
                  <artifactId>maven-release-plugin</artifactId>
                  <version>2.5.3</version>
+                 <configuration>
+                   <tagBase>https://github.com/mock-carlosrodlop-org/maven-helloworld/releases</tagBase>
+                 </configuration>
              </plugin>
         </plugins>
     </build>
