@@ -12,18 +12,6 @@ $id$
     <scm>
         <developerConnection>scm:git:git@github.com:mock-carlosrodlop-org/maven-helloworld.git</developerConnection>
     </scm>
-    <distributionManagement>
-        <repository>
-              <id>central</id>
-              <name>MacBook-Pro-de-Carlos.local-releases2</name>
-              <url>http://localhost:8081/artifactory/libs-release</url>
-        </repository>
-        <snapshotRepository>
-              <id>snapshots</id>
-              <name>MacBook-Pro-de-Carlos.local-snapshots2</name>
-              <url>http://localhost:8081/artifactory/libs-snapshot</url>
-    </snapshotRepository>
-  </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
