@@ -1,8 +1,7 @@
 <!--
 $id$
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cloudbees.manticore</groupId>
     <artifactId>example</artifactId>
@@ -10,10 +9,11 @@ $id$
     <version>1.0-SNAPSHOT</version>
     <name>example</name>
     <url>http://maven.apache.org</url>
-    <scm>
-         <connection>scm:git:http://github.com/mock-carlosrodlop-org/maven-helloworld</connection>
-         <developerConnection>scm:git:https://github.com/mock-carlosrodlop-org/maven-helloworld</developerConnection>
-    </scm>     
+   <scm>
+        <connection>scm:git:file:///pre/code/mvn-scm/ZD-47527/</connection>
+        <developerConnection>scm:git:file:///pre/code/mvn-scm/ZD-47527/</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -28,13 +28,11 @@ $id$
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -70,9 +68,9 @@ $id$
                 <executions>
                     <execution>
                         <id>run-findbugs</id>
-                        <phase>verify</phase> 
+                        <phase>verify</phase>
                         <goals>
-                            <goal>check</goal> 
+                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -94,6 +92,18 @@ $id$
                     </execution>
                 </executions>
             </plugin>
+            <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <branchName>develop</branchName>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                </configuration>
+            </plugin>
+        </plugins>
         </plugins>
     </build>
 </project>
