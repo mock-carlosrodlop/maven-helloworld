@@ -10,8 +10,7 @@ $id$
     <name>example</name>
     <url>http://maven.apache.org</url>
    <scm>
-        <connection>scm:git:file:///pre/code/mvn-scm/ZD-47527/</connection>
-        <developerConnection>scm:git:file:///pre/code/mvn-scm/ZD-47527/</developerConnection>
+        <developerConnection>scm:git:https://github.com/mock-carlosrodlop-org/maven-helloworld</developerConnection>
         <tag>HEAD</tag>
     </scm>
     <dependencies>
