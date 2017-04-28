@@ -97,16 +97,18 @@ $id$
              </plugin>
         </plugins>
     </build>
-     <distributionManagement>
-     <repository>
-        <id>central</id>
-        <name>MacBook-Pro-de-Carlos.local-releases</name>
-        <url>http://localhost:8081/artifactory/libs-release</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>MacBook-Pro-de-Carlos.local-snapshots</name>
-        <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
-    </snapshotRepository>
-  </distributionManagement>   
+    <!-- Deploy in Repo (local artifactory)
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>MacBook-Pro-de-Carlos.local-releases</name>
+            <url>http://localhost:8081/artifactory/libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>MacBook-Pro-de-Carlos.local-snapshots</name>
+            <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>  
+    -->
 </project>
